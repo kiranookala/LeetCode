@@ -1,0 +1,39 @@
+class Solution {
+    public int[] intersect(int[] nums1, int[] nums2)
+    {
+        int[] res=new int[10000];
+        for(int i=0;i<res.length;i++)
+            res[i]=-1;
+        int k=0,count=0;
+        for(int i=0;i<nums1.length;i++)
+        {
+            for(int j=0;j<=nums2.length-1;j++)
+            {
+                if(nums1[i]==nums2[j])
+                {
+                    res[k]=nums1[i];
+                    k++;
+                    nums1[i]=-2;
+                    nums2[j]=-2;
+                    break;
+                }
+            }
+        }
+        
+        for(int i=0;i<res.length;i++)
+        {
+            if(res[i]==-1)
+                 break;
+            else
+                count++;
+            
+        }
+        int[] temp=new int[count];
+        for(int i=0;i<count;i++)
+        {
+            if(res[i]!=-1)
+                temp[i]=res[i];
+        }
+        return temp;
+    }
+}

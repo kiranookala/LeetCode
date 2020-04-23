@@ -1,0 +1,39 @@
+class Solution
+{
+    public int myAtoi(String str) 
+    {
+        int res=0,sub=1;
+        for(int i=0;i<str.length();i++)
+        {
+            /*if( Integer.valueOf(str) > Integer.MAX_VALUE )
+                return -2147483648;
+            else if( Integer.valueOf(str) < Integer.MIN_VALUE)
+                return Integer.MIN_VALUE;*/
+            
+            if(str.charAt(i)==32)
+                continue;
+            else if(str.charAt(i)=='-')
+            {
+                
+                sub=-1;
+            }
+            else if(str.charAt(i)>=48&&str.charAt(i)<=57)
+            {
+                int temp=str.charAt(i)-48;
+                res=res*10+temp;
+            }
+            else 
+                break;
+        }
+         if(res*sub<Integer.MIN_VALUE) 
+             return Integer.MIN_VALUE;
+        
+        if(res*sub>Integer.MAX_VALUE)
+                return Integer.MAX_VALUE;
+      /*  if( res > Integer.MAX_VALUE || res < Integer.MIN_VALUE)
+            return Integer.MIN_VALUE;
+        res=res*sub;*/
+        return res*sub;
+        
+    }
+}

@@ -1,0 +1,27 @@
+class Solution 
+{
+    public int firstUniqChar(String s)
+    {
+        int len=s.length();
+        char[] ch = s.toCharArray(); 
+       // int[] ind=new int[len];
+        for(int i=0;i<len;i++)
+        { 
+            int count=0;
+            for(int j=0;j<len;j++)
+            {
+                if(ch[i]==ch[j])
+                    count++;
+                    
+            }
+             if(count==1)
+                return i;
+        }
+       /* for(int i=0;i<len;i++)
+        {
+            if(ind[i]==0)
+                return i;
+        }*/
+        return -1;
+    }
+}
